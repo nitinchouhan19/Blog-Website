@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Blog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <div class = "px-8 pt-28 bg-[#363636] text-white font-bold text-4xl">
+        Draft
+    </div>
+    {%  if blogs   %}
+    {% include 'blogs.html' %}
+    {% else %}
+    <div class = "px-8 py-8 text-semibold text-2xl">
+        Oops! You Have No blogs Here
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

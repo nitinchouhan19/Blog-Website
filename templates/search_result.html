@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brainy Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700&display=swap" rel="stylesheet">
+    
+  </head>
+  <body>
+    {% include 'navbar.html'%}
+    <div class = "py-28 px-4 font-bold text-xl text-white  bg-[#363636]">
+        Search Results 
+    </div>
+    {% if blogs %}
+    {% include 'blogs.html' %}
+    {% else %}
+    <div class = "px-2 py-2 text-white text-xl bg-[#363636]">
+        No Blogs here related with Query
+    </div>
+    {% endif  %}
+    <div>
+        {% include 'footer.html'%}
+    </div>
+    
+  </body>
+</html>
+

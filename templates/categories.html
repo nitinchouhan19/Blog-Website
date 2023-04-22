@@ -1,0 +1,22 @@
+{% block content%}
+<main>
+    
+    <div class = "bg-[#3A6073] px-12 py-12" >
+        <div class = "text-center font-bold text-3xl text-white">
+            Read Different Blogs 
+        </div>
+        <div class = "grid grid-cols-3 gap-4 ">
+            {% for category in  categories %}
+            <a href = "{% url 'category' category.id  %}"><div class="rounded bg-white rounded text-center my-2">
+                <div>
+                    <img src = "{{category.image}}" >
+                </div>
+                <div class = "font-bold text-xl">
+                    {{category.name}}
+                </div>
+            </div></a>
+            {% endfor %}
+        </div>
+    </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% block content  %}
+{% if blogs  %}
+<div class = " grid grid-cols-3 px-2 py-2 gap-4 bg-[#363636]">
+    {% for blog in blogs %}
+    <div class="rounded-xl bg-white rounded-xl">
+        <div>
+            <img src = "{{blog.image}}" class = "rounded-xl" >
+        </div>
+        <div class = "font-bold text-2xl text-black px-2 ">
+            {{blog.title}}
+        </div>
+        <div class = "text-sm text-black px-2">
+            {{blog.content|truncatechars:75}}<a href= "{% url 'getBlog' blog.id %}" class = "text-blue-200">Read More</a>
+        </div>
+        <div class = "text-gray-500 text-sm px-2">
+            ~{{blog.author}}
+        </div>
+        <div class = "px-2">
+            <small>{{blog.created_on}}</small>
+        </div>
+        <div class = "py-2 px-2">
+            {% if draft or myprofile %}
+            <a href = "{% url 'edit' blog.id %}">
+            <button class = "px-3 py-2 shadow-md  rounded hover:text-white hover:bg-[#363636]">Edit</button>
+            </a>
+            <a href = "{% url 'delete' blog.id %}">
+            <button class = "px-3 py-2 shadow-md rounded  hover:text-white hover:bg-[#363636]">Delete</button>
+            </a>
+            {% endif %}
+        </div> 
+    </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

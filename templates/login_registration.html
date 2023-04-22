@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class = "">
+    <div class = "flex justify-center px-4 py-32">
+        <div class = "flex  bg-blue-300 rounded-xl">
+            <div class = "px-4 py-4">
+                <div class = "items-center text-center">
+                    <div class = "flex justify-center">
+                        <img src = "https://cdn-icons-png.flaticon.com/512/64/64572.png" class = "w-auto h-28">
+                    </div>
+                    <div class = "py-6 " >
+                        <form method = "POST">
+                            {% csrf_token %}
+                            <div>
+                                <div class = "px-2 py-2">
+                                    <input type = "text" name  = 'username' placeholder = 'Username' class = "px-3 py-1 rounded-full outline-none" >
+                                </div>
+                                <div class = "px-2 py-2">
+                                    <input type = "password" name  = 'password' placeholder = 'Password' class = "px-3 py-1 rounded-full outline-none" >
+                                </div>
+                                {% if register %}
+                                <div class = "px-2 py-2">
+                                    <input type = "password" name  = 'confirm_password' placeholder = 'Confirm Password' class = "px-3 py-1 rounded-full outline-none" >
+                                </div>
+                                <div class = "px-2 py-2">
+                                    <input type = "email" name  = 'email' placeholder = 'Email' class = "px-3 py-1 rounded-full outline-none" >
+                                </div>
+                                {% endif  %}
+                                <div class = "py-3" >
+                                    {% if register %}
+                                    <button class = "px-6 py-2 bg-blue-500 text-white rounded-full font-semibold" >Register</button>
+                                    {% else %}
+                                    <button class = "px-6 py-2 bg-blue-500 text-white rounded-full font-semibold" >Login</button>
+                                    {% endif %}
+                                </div>
+                                <div class = "py-1">
+                                    {% if register %}
+                                    Already Signed Up.?
+                                    {% else %}
+                                    Haven't Signed Up Yet?
+                                    {% endif %}
+                                </div>
+                                <div class = "outline-none text-green-900 ">
+                                    {% if register %}
+                                    <a href = "{% url 'login' %}" class = "outline-none">Login</a>
+                                    {% else %}
+                                    <a href = "{% url 'register' %}" class = "outline-none">Sign Up</a>
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src = "https://youthed.org.za/wp-content/uploads/2022/10/login-users-1024x904.png" class = "w-auto h-96">
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Food</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div>
+        {% include 'navbar.html' %}
+    <div>
+    <div class = "flex px-2 py-20 justify-around rounded bg-[#363636] text-black items-center">
+        <div class = "flex-1">
+            <img src = "{{category.image}}" class = "rounded-3xl">
+        </div>
+        <div class = "flex-1 py-12 text-center text-white">
+            <div class = "font-bold text-6xl">
+                {{category.name}}
+            </div>
+            <div class = "py-4 text-xl">
+                {{category.description}}
+            </div>
+        </div>
+    </div>
+    {% include 'blogs.html' %}
+    <script>
+        const navbar = document.querySelector('nav');
+        
+
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            navbar.classList.remove('bg-transparent');
+            navbar.classList.add('bg-white');
+        } else {
+            navbar.classList.remove('bg-white');
+            navbar.classList.add('bg-transparent');
+        }
+        });
+        const header = document.querySelector('header');
+        
+
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            header.classList.remove('bg-transparent');
+            header.classList.add('bg-white');
+        } else {
+            header.classList.remove('bg-white');
+            header.classList.add('bg-transparent');
+        }
+        });
+    </script>
+</body>
+</html>
